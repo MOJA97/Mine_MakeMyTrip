@@ -1,0 +1,11 @@
+public void takeScreenShot(String fileName) throws IOException {
+		try {
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			File src = ts.getScreenshotAs(OutputType.FILE);
+			File des = new File(System.getProperty("user.dir") + "\\ScreenShot\\" + fileName + ".png");
+			FileUtils.copyFile(src, des);
+		} catch (WebDriverException e) {
+
+			e.printStackTrace();
+		}
+	}
